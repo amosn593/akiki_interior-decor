@@ -1,0 +1,156 @@
+{% extends 'akiki/base.html' %}
+{% load static %}
+{% block title %}Home {% endblock%}
+{% block body %}
+
+<div class="container-fluid mt-2">
+    <div id="slide" class="carousel slide mt-5" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#slide" data-slide-to="0" class="active"></li>
+            <li data-target="#slide" data-slide-to="1"></li>
+            <li data-target="#slide" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100 rounded slided"
+                     src="{% static 'akiki/images/slide_2.jpg' %}"
+                     alt="Slide One" loading="lazy">
+                <div class="carousel-caption">
+                    <h3>AKiKi Gypsum works and Interior decor</h3>
+                    <p>Bringing Decor To You</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 rounded slided"
+                     src="{% static 'akiki/images/partition.jpg' %}"
+                     alt="Slide Two" loading="lazy">
+                <div class="carousel-caption">
+                    <h3>AKiKi Gypsum works and Interior decor</h3>
+                    <p>Bringing Decor To You</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 rounded slided"
+                     src="{% static 'akiki/images/slide_3.jpg' %}"
+                     alt="Slide Three" loading="lazy">
+                <div class="carousel-caption">
+                    <h3>AKiKi Gypsum works and Interior decor</h3>
+                    <p>Bringing Decor To You</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#slide" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#slide" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+
+{% comment %} Featured works {% endcomment %}
+<div class="container-fluid mt-4">
+    <h2 class="text-center mb-2">Featured Works</h2>
+    <hr class="my-4 ">
+    <div class="card-deck">
+        {% comment %} card one {% endcomment %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'akiki/images/feat_1.jpg' %}" alt="Card image"
+                 loading="lazy">
+            <div class="card-img-overlay">
+                <h4 class="card-title"></h4>
+                <p class="card-text"></p>
+            </div>
+        </div>
+        {% comment %} Card two {% endcomment %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'akiki/images/feat_2.jpg' %}" alt="Card image"
+                 loading="lazy">
+            <div class="card-img-overlay">
+                <h4 class="card-title"></h4>
+                <p class="card-text"></p>
+            </div>
+        </div>
+
+        {% comment %} Card three {% endcomment %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'akiki/images/feat_3.jpg' %}" alt="Card image"
+                 loading="lazy">
+            <div class="card-img-overlay">
+                <h4 class="card-title"></h4>
+                <p class="card-text"></p>
+            </div>
+        </div>
+
+        {% comment %} Card four {% endcomment %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'akiki/images/feat_7.jpg' %}" alt="Card image"
+                 loading="lazy">
+            <div class="card-img-overlay">
+                <h4 class="card-title"></h4>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
+    {% comment %} Column two {% endcomment %}
+    <div class="card-deck">
+        {% comment %} Card one {% endcomment %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'akiki/images/feat_4.jpg' %}" alt="Card image"
+                 loading="lazy">
+            <div class="card-img-overlay">
+                <h4 class="card-title"></h4>
+                <p class="card-text"></p>
+            </div>
+        </div>
+        {% comment %} Card two {% endcomment %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'akiki/images/feat_5.jpg' %}" alt="Card image"
+                 loading="lazy">
+            <div class="card-img-overlay">
+                <h4 class="card-title"></h4>
+                <p class="card-text"></p>
+            </div>
+        </div>
+        {% comment %} Card three {% endcomment %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'akiki/images/feat_6.jpg' %}" alt="Card image"
+                 loading="lazy">
+            <div class="card-img-overlay">
+                <h4 class="card-title"></h4>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %} Why Choose Us {% endcomment %}
+<div class="row mt-3">
+    <div class="col-md-12">
+        <h2 class="m-3 text-center">Why Choose Us?</h2>
+        <hr class="my-4 ">
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-4" class=" text-center">
+            <h4 class=" text-center title">We're passionate about what we do</h4>
+            <p class="text-center desc">Our passion has always been to provide a premium level of
+                professional, reliable, quality and timely service delivery to our clients.</p>
+        </div>
+        <div class="col-md-4" class=" text-center">
+            <h4 class="text-center title">Competitive Prices</h4>
+            <p class="text-center desc">We quarantee no hidden charges from a wide selection of
+                quality services. We are able to offer prices that are transparent and among the
+                most competitive.
+            </p>
+        </div>
+        <div class="col-md-4" class=" text-center">
+            <h4 class=" text-center title">Proven track record</h4>
+            <p class="text-center desc">We've gained a reputation as a reliable and honest company
+                in the last five years with most of our customers coming from referrals.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

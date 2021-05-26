@@ -1,0 +1,109 @@
+{% extends 'akiki/base.html' %}
+{% load static %}
+{% block title %}Contact us {% endblock%}
+{% block body %}
+<br>
+<br>
+
+<div class="row mt-3">
+    <div class="col-md-12 text-center">
+        <h2 class="text-center">Get in Touch with Us</h2>
+        <hr class="my-4 ">
+    </div>
+</div>
+{% comment %} Contact form and address {% endcomment %}
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <h3 class="text-center">Our Address</h3>
+            {% comment %} Address {% endcomment %}
+            <p class="mt-2 desc">AKiKi Gypsum works and Interior decor</p>
+            <p class="desc">Kongowea, Karama, Mombasa, Kenya</p>
+            <p class="desc">0705935996</p>
+            <p class="pb-1 desc">akikiinterior@gmail.com</p>
+            {% comment %} map {% endcomment %}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.9226663498575!2d39.68587231411839!3d-4.036204145943675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18401288cd7d1db3%3A0xd321a265a3e34c03!2sKarama%20Road!5e0!3m2!1sen!2ske!4v1617872225971!5m2!1sen!2ske"
+                    width="600" height="450" style="border:1;" allowfullscreen=""
+                    loading="lazy"></iframe>
+        </div>
+        <div class="col-md-6">
+            {% comment %} Contact us Form {% endcomment %}
+            <h3 class="text-center">Contact Us Form</h3>
+            <form id="contact-form" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="uname">Full Name:</label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter Full Name"
+                           name="uname" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please enter your Full Name.</div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="number" class="form-control" id="phone"
+                           placeholder="Enter Phone Number" name="phone" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please enter your Phone number.</div>
+                </div>
+                <div class="form-group">
+                    <label for="mail">Email Address:</label>
+                    <input type="email" class="form-control" id="mail"
+                           placeholder="Enter Email Address" name="mail" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please enter your email address.</div>
+                </div>
+                <div class="form-group">
+                    <label for="msg">Message:</label>
+                    <textarea name="msg" id="msg" cols="30" rows="5" class="form-control"
+                              required></textarea>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please enter your message.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'akiki/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'akiki/js/toastr.min.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        // Ajax Submission
+        $('#contact-form').on('submit', function (e) {
+
+            e.preventDefault();
+
+            $.ajax({
+                type: "POST",
+                url: "{% url 'ajax_posting' %}",
+                data: {
+                    full_name: $('#uname').val(),
+                    phone: $('#phone').val(),
+                    mail: $('#mail').val(),
+                    msg: $('#msg').val(),
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+
+                },
+
+                success: function (data) {
+                    toastr.success(data.msg)
+                    document.getElementById("contact-form").reset()
+                },
+
+                failure: function (error) {
+                    console.log("Something went wrong, try again!!!")
+
+                }
+
+
+            });
+
+
+        });
+
+    });
+</script>
+
+
+{% endblock %}
